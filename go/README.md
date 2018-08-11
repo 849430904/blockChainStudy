@@ -97,5 +97,7 @@
 ![](img/011.png)
 ![](img/012.png)![](img/013.png)![](img/014.png)
 ![](img/015.png)![](img/016.png)![](img/017.png)
-![](img/018.png)![](img/019.png)![](img/020.png)![](img/021.png)![](img/022.png)
+![](img/018.png)![](img/019.png)![](img/020.png)![](img/021.png)![](img/022.png)![](img/023.png)
+* 标识符的全名规范：![](img/024.png)
+* ![](img/025.png)![](img/026.png)![](img/027.png)![](img/028.png)![](img/029.png)![](img/030.png)![](img/031.png)![](img/032.png)![](img/033.png)![](img/034.png)![](img/035.png)
 
