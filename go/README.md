@@ -1,3 +1,9 @@
+#### GO资料
+* [Go 学习之路：Go 开发者博客、Go 微信公众号、Go 学习资料（文档、书籍、视频）
+](https://github.com/developer-learning/learning-golang)
+* [Go Web 编程](https://github.com/xionglun/goBook)
+
+
 #### Go语言核心编程
 * go语言，简称Golang;
 * Golang应用：区块链研发工程师、Go服务器端/游戏软件工程师、Golang分布式/云计算服务后台应用；golang的计算能力强
