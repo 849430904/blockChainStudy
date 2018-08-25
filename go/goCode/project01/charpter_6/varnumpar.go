@@ -10,7 +10,7 @@ func main() {
 	fmt.Printf("The minimum in the slice is: %d", x)
 }
 
-func Min(s ...int) int {
+func Min(s ...int) int {//接收可变参数
 	if len(s) == 0 {
 		return 0
 	}

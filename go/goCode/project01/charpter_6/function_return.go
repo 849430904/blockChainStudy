@@ -11,7 +11,7 @@ func main() {
 	fmt.Printf("The result is: %v\n", TwoAdder(2))
 }
 
-func Add2() func(b int) int {
+func Add2() func(b int) int {//将闭包做为函数的返回值
 	return func(b int) int {
 		return b + 2
 	}

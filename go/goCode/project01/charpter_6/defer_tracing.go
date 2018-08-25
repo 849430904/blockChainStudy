@@ -12,8 +12,8 @@ func a() {
 }
 
 func b() {
-	trace("b")
-	defer untrace("b")
+	trace("b")//进入某个函数
+	defer untrace("b")//离开函数
 	fmt.Println("in b")
 	a()
 }

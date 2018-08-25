@@ -5,6 +5,7 @@ import (
 	"fmt"
 )
 
+//改变外部变量（outside variable）
 func Multiply(a, b int, reply *int) {
 	*reply = a * b
 }

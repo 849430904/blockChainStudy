@@ -13,7 +13,7 @@ func Add(a, b int) {
 	fmt.Printf("The sum of %d and %d is: %d\n", a, b, a+b)
 }
 
-func callback(y int, f func(int, int)) {
+func callback(y int, f func(int, int)) {//函数做为参数
 	f(y, 2) // this becomes Add(1, 2)
 }
 

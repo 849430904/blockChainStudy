@@ -5,7 +5,9 @@ import "fmt"
 func main() {
 	Function1()
 }
-
+// 关键字 defer 允许我们推迟到函数返回之前（或任意位置执行 return 语句之后）一刻才执行某个语句或函数（为什么要在返回之后才执行这些语句？
+//因为 return 语句同样可以包含一些操作，而不是单纯地返回某个值）。
+// 关键字 defer 的用法类似于面向对象编程语言 Java 和 C# 的 finally 语句块，它一般用于释放某些已分配的资源。
 func Function1() {
 	fmt.Printf("In Function1 at the top\n")
 	defer Function2()
@@ -13,5 +15,5 @@ func Function1() {
 }
 
 func Function2() {
-	fmt.Printf("Function2: Deferred until the end of the calling function!")
+	fmt.Printf("Function2: Deferred until the end of the calling function!\n")
 }
