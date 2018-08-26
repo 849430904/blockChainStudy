@@ -3,6 +3,7 @@ import (
 	"fmt"
 )
 
+//切片的遍历方式
 func main() {
 
 	//使用常规的for循环遍历切片
@@ -15,7 +16,7 @@ func main() {
 
 	fmt.Println()
 	//使用for--range 方式遍历切片
-	for i, v := range slice {
+	for i, v := range slice {//如果遍历时不想要i,可以用_替换旧
 		fmt.Printf("i=%v v=%v \n", i, v)
 	}
 
@@ -48,3 +49,14 @@ func main() {
 	fmt.Println("slice4=", slice4)// 1, 2, 3, 4, 5
 	fmt.Println("slice5=", slice5) // 1, 2, 3, 4, 5, 0 , 0 ,0,0,0
 }
+
+/**
+
+切片注意事项：
+   1，切片初始化时要指明开始、结束下标
+   2，切片初始化时，仍然不能越界，范围在[0~len(xx)]
+	  如果引用一个存在的数组，可以有以下三种写法:
+	  var slice = arr[0:end] 可以简写 var slice = arr[:end]
+	  var slice = arr[start:len(arr)] 可以简写 var slice = arr[start:]
+      var slice = arr[0:len(arr)] 可以简写 var slice = arr[:]
+**/
