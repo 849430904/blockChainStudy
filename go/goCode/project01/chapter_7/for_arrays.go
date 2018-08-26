@@ -13,4 +13,9 @@ func main() {
 	for i := 0; i < len(arr1); i++ {
 		fmt.Printf("Array at index %d is %d\n", i, arr1[i])
 	}
+
+	a := [...]string{"a", "b", "c", "d"}
+	for i := range a {
+		fmt.Println("Array item", i, "is", a[i])
+	}
 }

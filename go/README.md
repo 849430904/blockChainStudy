@@ -2,6 +2,7 @@
 * [Go 学习之路：Go 开发者博客、Go 微信公众号、Go 学习资料（文档、书籍、视频）
 ](https://github.com/developer-learning/learning-golang)
 * [Go Web 编程](https://github.com/xionglun/goBook)
+* [Go图形化界面开发](https://blog.csdn.net/tennysonsky/article/details/79293700)
 
 
 #### Go语言核心编程
