@@ -8,9 +8,10 @@ func test01(arr [3]int) {
 	arr[0] = 88
 } 
 
+
 //函数
 func test02(arr *[3]int) {
-	fmt.Printf("arr指针的地址=%p", &arr)
+	fmt.Printf("arr指针的地址=%p \n", &arr)
 	(*arr)[0] = 88 //!!
 } 
 
@@ -47,13 +48,13 @@ func main() {
 
 	//Go的数组属值类型， 在默认情况下是值传递， 因此会进行值拷贝。数组间不会相互影响
 
-	// arr := [3]int{11, 22, 33}
-	// test01(arr)
-	// fmt.Println("main arr=", arr) //
-
-
 	arr := [3]int{11, 22, 33}
-	fmt.Printf("arr 的地址=%p", &arr)
-	test02(&arr)
-	fmt.Println("main arr=", arr)
+	test01(arr)//局部改变
+	fmt.Println("main arr=", arr) //
+
+
+	// arr := [3]int{11, 22, 33}
+	// fmt.Printf("arr 的地址=%p \n", &arr)
+	// test02(&arr)//通过指针改变
+	// fmt.Println("main arr=  \n", arr)
 }

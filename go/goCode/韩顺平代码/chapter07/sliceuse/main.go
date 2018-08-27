@@ -8,6 +8,8 @@ func main() {
 
 	//演示切片的基本使用
 	var intArr [5]int = [...]int{1, 22, 33, 66, 99}
+	//var intArr [3]int //int占8个字节,数组的定义方法
+	
 	//声明/定义一个切片  方式一
 	//slice := intArr[1:3]
 	//1. slice 就是切片名
