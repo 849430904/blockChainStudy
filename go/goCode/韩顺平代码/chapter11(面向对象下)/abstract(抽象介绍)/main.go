@@ -3,6 +3,13 @@ package main
 import (
 	"fmt"
 )
+
+/**
+
+我们在前面去定义一个结构体时候，实际上就是把一类事物的共有的属性(字段)和行为(方法)提取 出来，
+形成一个物理模型(结构体)。这种研究问题的方法称为抽象。
+**/
+
 //定义一个结构体Account
 type Account struct {
 	AccountNo string
