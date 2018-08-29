@@ -10,7 +10,10 @@ func main() {
 方式一：
    slice := intArr[1:3]
 方式二：
-   var slice []float64 = make([]float64, 5, 10)   
+   var slice []float64 = make([]float64, 5, 10)
+方式三：
+   //第3种方式：定义一个切片，直接就指定具体数组，使用原理类似make的方式
+  var strSlice []string = []string{"tom", "jack", "mary"}      
 **/
 
 
