@@ -5,6 +5,14 @@ import (
 	"fmt"
 )
 
+/*
+案例要求：
+	1，编写一个Monster结构体，字段为Name,Age,skill
+	2,给Monster绑定就去Store，可以将一个Monster变量（对象），序列化保存到文件中
+	3，给Monster绑定方法ReStore，可以将一个序列化的Monster从文件中读取，将反序列化为Monster对象，检查反序列化，名字正常
+	4，编写测试用例文件store_test.go，编写测试用例函数TestStore和TestRestore进行测试
+*/
+
 type Monster struct {
 	Name string
 	Age int
