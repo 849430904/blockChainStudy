@@ -1,7 +1,7 @@
 package main
 import (
 	"fmt"
-	"flag"
+	"flag"//https://studygolang.com/static/pkgdoc/pkg/flag.htm
 )
 
 func main() {

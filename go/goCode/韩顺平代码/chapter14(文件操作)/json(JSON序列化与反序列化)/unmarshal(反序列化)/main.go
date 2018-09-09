@@ -4,6 +4,14 @@ import (
 	"encoding/json"
 )
 
+/**
+json 反序列化是指，将 json 字符串反序列化成对应的数据类型(比如结构体、map、切片)的操作;
+
+反序列化：https://studygolang.com/static/pkgdoc/pkg/encoding_json.htm#Unmarshal
+	func Unmarshal(data []byte, v interface{}) error
+
+**/
+
 //定义一个结构体
 type Monster struct {
 	Name string  
@@ -22,7 +30,8 @@ func unmarshalStruct() {
 	//定义一个Monster实例
 	var monster Monster
 
-	err := json.Unmarshal([]byte(str), &monster)
+	//[]byte(str):将str转成byte切片
+	err := json.Unmarshal([]byte(str), &monster)//要用引用传递
 	if err != nil {
 		fmt.Printf("unmarshal err=%v\n", err)
 	}
@@ -60,7 +69,7 @@ func unmarshalMap() {
 
 	//反序列化
 	//注意：反序列化map,不需要make,因为make操作被封装到 Unmarshal函数
-	err := json.Unmarshal([]byte(str), &a)
+	err := json.Unmarshal([]byte(str), &a)//要传地址
 	if err != nil {
 		fmt.Printf("unmarshal err=%v\n", err)
 	}
@@ -76,7 +85,7 @@ func unmarshalSlice() {
 	//定义一个slice
 	var slice []map[string]interface{}
 	//反序列化，不需要make,因为make操作被封装到 Unmarshal函数
-	err := json.Unmarshal([]byte(str), &slice)
+	err := json.Unmarshal([]byte(str), &slice)//要传地址
 	if err != nil {
 		fmt.Printf("unmarshal err=%v\n", err)
 	}
