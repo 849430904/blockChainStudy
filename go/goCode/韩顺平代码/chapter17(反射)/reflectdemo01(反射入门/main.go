@@ -5,18 +5,42 @@ import (
 )
 
 
+/*
+ 反射基本介绍：
+	 1，反射可以在运行时动态获取变量的各种信息。比如变量的类型（type）,类别(kind)
+	 2,如果是结构体变量，还可以获取到结构体身的信息（包括结构体的字段与方法）
+	 3，通过反射，可以修改变量的值，可以调用关联的就读
+	 4，使用反射需要: import ("reflect")
+	
+ 
+反射应用常景：
+	1，不知道接口调用哪个函数，根据传入参数在运行时确定调用的具体接口，这种需要对函数或方法
+	   反射。例如以下这种桥接模式，比如：
+	   func bridge(funcPtr interface{},agrs....interface{})
+	  第一个参数funcPtr以接口的形式传函数指针，函数参数args以可变参数的形式传入，bridge函数中可以
+	  用反射来动态执行funcPtr函数
+	2，对结构体序列化时，如果结构体有指令tag,也会使用到反射生成的对应字符串
+
+
+反射重要的函数和概念：
+	1，reflect.TypeOf(变量名)，获取变量的类型，返回reflect.Type类型
+	2，reflect.ValueOf(变量名)，获取变量的值，返回reflect.Value类型reflect.Value是一个结构体类型。看文档，通过
+	   reflect.Value，可以获取到关于该变量的很多信息
+    3，变量 、 infterface{}和reflect.Value是可以相互转换的，这点在实际开发中，会经常用到。(通过.Interface()方法转换)
+*/
+
 //专门演示反射
 func reflectTest01(b interface{}) {
 
 	//通过反射获取的传入的变量的 type , kind, 值
 	//1. 先获取到 reflect.Type
 	rTyp := reflect.TypeOf(b)
-	fmt.Println("rType=", rTyp)
+	fmt.Println("rType=", rTyp)//通过反射获取变量的类型
 
 	//2. 获取到 reflect.Value
-	rVal := reflect.ValueOf(b)
+	rVal := reflect.ValueOf(b)//通过反射获取变量的值  
 	
-	n2 := 2 + rVal.Int()
+	n2 := 2 + rVal.Int() //rVal = 100 ,n2 = 102
 	//n3 := rVal.Float()
 	fmt.Println("n2=", n2)
 	//fmt.Println("n3=", n3)

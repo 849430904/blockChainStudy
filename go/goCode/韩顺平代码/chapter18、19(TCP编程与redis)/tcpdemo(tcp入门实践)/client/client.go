@@ -9,7 +9,7 @@ import (
 
 func main() {
 
-	conn, err := net.Dial("tcp", "192.168.20.253:8888")
+	conn, err := net.Dial("tcp", "0.0.0.0:8881")
 	if err != nil {
 		fmt.Println("client dial err=", err)
 		return 
@@ -40,3 +40,11 @@ func main() {
 	
 
 }
+
+/*
+客户端功能:
+	1. 编写一个客户端端程序，能链接到 服务器端的 8888 端口
+	2. 客户端可以发送单行数据，然后就退出
+	3. 能通过终端输入数据(输入一行发送一行), 并发送给服务器端 []
+	4. 在终端输入 exit,表示退出程序.
+*/

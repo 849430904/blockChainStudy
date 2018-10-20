@@ -25,6 +25,8 @@ func process(conn net.Conn) {
 		}
 		//3. 显示客户端发送的内容到服务器的终端
 		fmt.Print(string(buf[:n])) 
+
+		//conn.Write(buf)
 	}
 
 }
@@ -35,7 +37,7 @@ func main() {
 	//net.Listen("tcp", "0.0.0.0:8888")
 	//1. tcp 表示使用网络协议是tcp
 	//2. 0.0.0.0:8888 表示在本地监听 8888端口
-	listen, err := net.Listen("tcp", "0.0.0.0:8888")
+	listen, err := net.Listen("tcp", "0.0.0.0:8881")
 	if err != nil {
 		fmt.Println("listen err=", err)
 		return 
@@ -54,8 +56,15 @@ func main() {
 			fmt.Printf("Accept() suc con=%v 客户端ip=%v\n", conn, conn.RemoteAddr().String())
 		}
 		//这里准备其一个协程，为客户端服务
-		go process(conn)
+		go process(conn)//上面定义的process方法，封装了处理细节 
 	}
 	
 	//fmt.Printf("listen suc=%v\n", listen)
 }
+
+/*
+服务器端功能:
+   编写一个服务器端程序，在 8888 端口监听
+   可以和多个客户端创建链接 链接成功后，客户端可以发送数据，
+   服务器端接受数据，并显示在终端上. 先使用 telnet 来测试，然后编写客户端程序来测试
+*/
