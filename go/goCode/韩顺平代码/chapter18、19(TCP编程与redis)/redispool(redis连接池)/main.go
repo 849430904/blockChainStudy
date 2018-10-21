@@ -4,6 +4,14 @@ import (
 	"github.com/garyburd/redigo/redis"
 )
 
+/*
+
+说明: 通过 Golang 对 Redis 操作， 还可以通过 Redis 链接池, 流程如下: 
+	1) 事先初始化一定数量的链接，放入到链接池
+	2) 当 Go 需要操作 Redis 时，直接从 Redis 链接池取出链接即可。
+	3) 这样可以节省临时获取 Redis 链接的时间，从而提高效率.*/
+
+
 //定义一个全局的pool
 var pool *redis.Pool
 
