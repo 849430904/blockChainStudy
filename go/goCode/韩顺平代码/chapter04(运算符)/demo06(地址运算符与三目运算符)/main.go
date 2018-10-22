@@ -14,8 +14,8 @@ func main() {
 	var n int 
 	var i int = 10
 	var j int = 12
-	//传统的三元运算
-	//n = i > j ? i : j
+	//传统的三元运算  
+	//n = i > j ? i : j  //会报错，go不支持三目运算
 	if i > j {
 		n = i
 	} else {

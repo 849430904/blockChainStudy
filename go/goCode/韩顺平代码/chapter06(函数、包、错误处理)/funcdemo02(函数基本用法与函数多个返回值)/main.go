@@ -43,6 +43,6 @@ func main() {
 	fmt.Printf("res1=%v res2=%v\n", res1, res2)
 
 	//希望忽略某个返回值，则使用 _ 符号表示占位忽略
-	_, res3 =  getSumAndSub(3, 9)
+	_,res3 := getSumAndSub(3, 9)//把返回的第一个参数忽略掉，只要第二个返回值
 	fmt.Println("res3=", res3)
 }
