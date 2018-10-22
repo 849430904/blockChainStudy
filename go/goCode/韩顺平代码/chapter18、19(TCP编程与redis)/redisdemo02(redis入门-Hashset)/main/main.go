@@ -4,6 +4,8 @@ import (
 	"github.com/garyburd/redigo/redis" //引入redis包
 )
 
+
+//Golang操作hashSet
 func main() {
 	//通过go 向redis 写入数据和读取数据
 	//1. 链接到redis

@@ -51,7 +51,7 @@ func TestStruct(a interface{}) {
 	for i := 0; i < num; i++ {
 		fmt.Printf("Field %d: 值为=%v\n", i, val.Field(i))
 		//获取到struct标签, 注意需要通过reflect.Type来获取tag标签的值
-		tagVal := typ.Field(i).Tag.Get("json")
+		tagVal := typ.Field(i).Tag.Get("json")//获取json的tag
 		//如果该字段于tag标签就显示，否则就不显示
 		if tagVal != "" {
 			fmt.Printf("Field %d: tag为=%v\n", i, tagVal)
@@ -85,3 +85,13 @@ func main() {
 	//将Monster实例传递给TestStruct函数
 	TestStruct(a)	
 }
+
+/*
+实践：
+  1) 使用反射来遍历结构体的字段，调用结构体的方法，并获取结构体标签的值
+  2）使用反射的方式来获取结构体的 tag 标签, 遍历字段的值，修改字段值，
+	 调用结构体方法(要求: 通过传递地址的方式完成, 在前面案例上修改即可)
+  3）定义了两个函数 test1 和 test2，定义一个适配器函数用作统一处理接口【了解】
+  4）使用反射操作任意结构体类型:【了解】
+  5) 使用反射创建并操作结构体
+*/
