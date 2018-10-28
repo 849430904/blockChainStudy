@@ -1,0 +1,42 @@
+package main
+
+import "fmt"
+
+
+func (cli *CLI)AddBlock(data string)  {
+	bc := GetBlockChainHandler()
+	bc.AddBlock(data)
+}
+
+//打印数据
+func (cli *CLI)PrintChain()  {
+
+	bc := GetBlockChainHandler()
+	//打印数据
+	it := bc.NewIterator()
+
+	for  {
+		block := it.Next()
+		fmt.Printf("version:%d \n", block.Version)
+		fmt.Printf("PrevBlockHash:%x \n", block.PrevBlockHash)
+		fmt.Printf("Hash:%x \n", block.Hash)
+		fmt.Printf("TimeStamp:%d \n", block.TimeStamp)
+		fmt.Printf("Bits:%d \n", block.Bits)
+		fmt.Printf("Nonce:%d \n", block.Nonce)
+		fmt.Printf("Data:%s \n", block.Data)
+		fmt.Printf("isValild:%v \n", NewProofOfWork(block).isValid())
+
+		if len(block.PrevBlockHash) == 0{
+			fmt.Printf("end...")
+			break
+		}
+	}
+
+}
+
+
+func (cli *CLI)CreateChain(address string)  {
+	bc := NewBlockChain()
+	bc.db.Close()
+	fmt.Println("create CreateChain successfully...")
+}
