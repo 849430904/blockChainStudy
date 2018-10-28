@@ -47,3 +47,10 @@
 ##### bolt数据库
 * [源码](https://github.com/boltdb/bolt)
 * 原理  ![](img/036.png)，把数据放到桶里，由桶来维护。一个数据库文件可以有多个通；本地需要存储区块的数据，key:value => key = blolk_hash, value = bolck.Serialize(),每添加一个区块，就添加这样的一对数据；testHash_key:存储最后一个区块的hash(每次只需要读这个key,就可以拿到最后一个区块，而不需要遍历所有区块)
+
+#### 比特币交易
+* 地址![](img/037.png)![](img/038.png)![](img/039.png),拿到公钥后，对公钥进行sh256哈希（得到20个字节），再对结果进行PIPEMD160哈希，再对结果两次256哈希
+* 多种交易形式
+* ![](img/040.png)![](img/041.png)![](img/042.png)
+* ![](img/043.png)![](img/044.png)![](img/045.png)![](img/046.png)![](img/047.png)
+* UTXO生成消耗过程 ![](img/048.png)
