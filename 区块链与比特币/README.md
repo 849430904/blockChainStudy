@@ -42,3 +42,8 @@
 
 #### 比特币交易流程
 * ![](img/034.png)![](img/035.png)![](img/033.png)
+
+#### [代码相关](src)
+##### bolt数据库
+* [源码](https://github.com/boltdb/bolt)
+* 原理  ![](img/036.png)，把数据放到桶里，由桶来维护。一个数据库文件可以有多个通；本地需要存储区块的数据，key:value => key = blolk_hash, value = bolck.Serialize(),每添加一个区块，就添加这样的一对数据；testHash_key:存储最后一个区块的hash(每次只需要读这个key,就可以拿到最后一个区块，而不需要遍历所有区块)
