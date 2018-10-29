@@ -18,12 +18,16 @@ import (
 const useage  = `
 	createChain --address ADDRESS  "create a  blockchain"
 	addBlock --data DATA  "add a block to blockChain"
+    send    --from From --to TO --amount AMOUNT  "send coin from FROM to TO"
+    getbalance --address ADDRESS  "get balance of address"
 	printChain            "printChain"
 `
 
 const CreateChainCmdString  = "createChain"
 const AddBlockCmdString  = "addBlock"
 const PrintChainCmdString  = "printChain"
+const sendCmdString  = "send"//转账
+const GetbalanceCmdString  = "getbalance"//获取某个账户的余额
 
 type CLI struct {
 
@@ -56,12 +60,15 @@ func (cli *CLI)Run()  {
 	createChainCmd := flag.NewFlagSet(CreateChainCmdString,flag.ExitOnError)
 	addBlockCmd := flag.NewFlagSet(AddBlockCmdString,flag.ExitOnError)
 	printChainCmd := flag.NewFlagSet(PrintChainCmdString,flag.ExitOnError)
+	getbalanceCmd := flag.NewFlagSet(GetbalanceCmdString,flag.ExitOnError)
 
 	//func (f *FlagSet) String(name string, value string, usage string) *string {
 	//把参数以str的形式返回,data表示参数名称，第二个参数表示默认值
 	addBlockCmdPara := addBlockCmd.String("data","","block transatcion info")
 
 	createChainCmdPara := addBlockCmd.String("address","","address info")
+
+	getbalanceCmdPara := addBlockCmd.String("address","","address info")
 
 
 	//监听命令
@@ -86,11 +93,27 @@ func (cli *CLI)Run()  {
 		err := addBlockCmd.Parse(os.Args[2:])//解析参数，形如：./block addBlock --data "A to B" , os.Args[2] = (--data "A to B")
 		CheckErr("Run() AddBlockCmdString",err)
 		if addBlockCmd.Parsed(){
+			if *getbalanceCmdPara == "" {
+				fmt.Println("address should not be empty")
+				cli.PrintUsage()
+			}
+			cli.GetBalance(*addBlockCmdPara)
+		}
+
+	case GetbalanceCmdString://获取余额
+
+
+		err := getbalanceCmd.Parse(os.Args[2:])//解析参数，形如：./block addBlock --data "A to B" , os.Args[2] = (--data "A to B")
+		CheckErr("Run() getbalanceCmd",err)
+		if getbalanceCmd.Parsed(){
 			if *addBlockCmdPara == "" {
 				cli.PrintUsage()
 			}
-		//	cli.AddBlock(*addBlockCmdPara)
+			//	cli.AddBlock(*addBlockCmdPara)
 		}
+
+
+
 
 	case PrintChainCmdString:
 

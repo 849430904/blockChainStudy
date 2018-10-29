@@ -19,7 +19,7 @@ type BlockChain struct {
 
 }
 
-func NewBlockChain() *BlockChain {
+func NewBlockChain(address string) *BlockChain {
 
 
 	//产生一个新的，需要创建一个文件数据库，在里面添加我们的区块
@@ -43,7 +43,8 @@ func NewBlockChain() *BlockChain {
 
 		}else {
 			//没有bucket，创建一个bucket(桶)，创建一个创世块，将数据填写到数据库的bucket
-			genersis := NewGenersisBlock()
+			coinbase := NewCoinbaseTx(address,"这是一个创世区块")
+			genersis := NewGenersisBlock(coinbase)
 
 			bucket,err := tx.CreateBucket([]byte(lastHashKey))//创建一个bucket(桶)
 			CheckErr("NewBlockChain2",err)
@@ -64,7 +65,7 @@ func NewBlockChain() *BlockChain {
 
 }
 
-func (bc *BlockChain) AddBlock(data string) {
+func (bc *BlockChain) AddBlock(txs []*Transaction) {
 
 
 	var prevBlockHash []byte
@@ -81,7 +82,7 @@ func (bc *BlockChain) AddBlock(data string) {
 	})
 
 	//1,先创建Block
-	block := NewBlock(data,prevBlockHash)
+	block := NewBlock(txs,prevBlockHash)
 
 
 	//2,写入Block
@@ -105,7 +106,8 @@ func (bc *BlockChain) AddBlock(data string) {
 }
 
 
-func InitBlockChain() *BlockChain {
+//创建blockChain数据库文件
+func InitBlockChain(address string) *BlockChain {
 
 	if isDBExist() {
 		fmt.Println("blockChain exist already,no need to create")
@@ -125,8 +127,10 @@ func InitBlockChain() *BlockChain {
 	//func (db *DB) Update(fn func(*Tx) error) error {
 	db.Update(func(tx *bolt.Tx) error {
 
+		coinbase := NewCoinbaseTx(address,"备注信息....")
+
 		//没有bucket，创建一个bucket(桶)，创建一个创世块，将数据填写到数据库的bucket
-		genersis := NewGenersisBlock()
+		genersis := NewGenersisBlock(coinbase)
 
 		bucket,err := tx.CreateBucket([]byte(lastHashKey))//创建一个bucket(桶)
 		CheckErr("InitBlockChain2",err)
@@ -220,5 +224,97 @@ func (it *BlockChainIterator)Next() (block *Block) {
     return
 }
 
+//返回指定地址能够支配的utxo的交易金额
+func (bc *BlockChain)FindUTXOTransactions(address string)[]Transaction  {
 
+	//包含目标UTXO的交易集合
+	var UTXOTransactions []Transaction
+
+	//定义一个存储使用过的utxo集合  map[交易id] =  int64
+	//0x1111111 ： 0,1 都是给Alice的转账
+	spentUTXO := make(map[string][]int64)
+
+
+
+	it := bc.NewIterator()
+	//遍历区块
+	for  {
+		block := it.Next()
+
+		//遍历所有交易
+		for _,tx := range  block.Transactions {
+
+
+
+			//遍历input
+			//目的：找到已经消耗过的utxo,把它们放到一个集合里面
+			//需要两个参数字段来标识使用过的Utxo:交易ID、output的索引
+
+			if !tx.IsCoinbase() {//不为一个挖矿交易
+				for _,input := range tx.TXInputs {
+
+					if input.CanUnlockUTXOWith(address) {
+						//map[txid][]int64
+						spentUTXO[string(tx.TXID)] = append(spentUTXO[string(tx.TXID)],input.Vout)
+					}
+
+				}
+			}
+
+
+		OUTPUTS:
+			//遍历Outputs
+			//目的：找到所有能支配的utxo
+			for currIndex,output := range tx.TXOutputs {
+
+				//检查录前的output是否已经被消耗，如果消耗过了，就进行下一个output检验
+
+				if spentUTXO[string(tx.TXID)] != nil {//非空，代表当前交易里面有消耗的UTXO
+					indexes := spentUTXO[string(tx.TXID)]
+					for _,index := range indexes {
+						if int64(currIndex) == index {//当前的索引和消耗的索引相同，说明这个output已经被消耗过了,直接跳过，进行下一个判断
+							continue OUTPUTS
+						}
+					}
+				}
+
+				//如果当前地址是这个utxo的所有者，就满足条件
+				if output.CanBeUnlockUTXOWith(address) {
+					UTXOTransactions = append(UTXOTransactions,*tx)
+				}
+			}
+
+		}
+
+
+
+
+		if len(block.PrevBlockHash) == 0 {
+			break
+		}
+	}
+	return UTXOTransactions
+}
+
+//寻找指定地址能够使用的utxo
+func (bc *BlockChain)FindUTXO(address string) []*TXOutput {
+
+	var UTXOs []*TXOutput
+
+	txs := bc.FindUTXOTransactions(address)//找到这个地址的所有交易
+	//遍历交易
+	for _,tx := range txs {
+		
+		//遍历outout
+		for _,utxo :=  range  tx.TXOutputs {
+
+			//当前地址拥有的utxo
+			if utxo.CanBeUnlockUTXOWith(address) {
+				UTXOs = append(UTXOs,&utxo)
+			}
+		}
+	}
+
+	return UTXOs
+}
 

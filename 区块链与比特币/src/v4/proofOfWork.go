@@ -37,7 +37,9 @@ func (pow *ProofOfWork)PrepareData(nonce int64)[]byte  {
 		IntToByte(block.TimeStamp),
 		IntToByte(targetBits),
 		IntToByte(nonce),
-		block.Data}
+		//block.
+		//block.Transactions.TransactionHash()//TODO
+	}
 
 	//func Join(s [][]byte, sep []byte) []byte {
 	data := bytes.Join(temp, []byte{}) //切片拼接
@@ -93,3 +95,4 @@ func (pow *ProofOfWork)isValid() bool {
 
     return hashInt.Cmp(pow.target) == -1
 }
+

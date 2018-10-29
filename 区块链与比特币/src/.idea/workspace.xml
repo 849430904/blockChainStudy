@@ -1,55 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/v4/blockchain.go" line="79" mnemonic="0" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="93fc5d37-7e86-47c8-a5e6-e958dfbd7dd1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/v4/block.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/blockchain.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/appveyor.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/bolt_386.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/bolt_amd64.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/bolt_arm.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/bolt_arm64.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/bolt_linux.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/bolt_openbsd.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/bolt_ppc.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/bolt_ppc64.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/bolt_ppc64le.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/bolt_s390x.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/bolt_unix.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/bolt_unix_solaris.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/bolt_windows.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/boltsync_unix.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/bucket.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/bucket_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/cmd/bolt/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/cmd/bolt/main_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/cursor.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/cursor_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/db.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/db_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/doc.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/errors.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/freelist.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/freelist_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/node.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/node_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/page.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/page_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/quick_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/simulation_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/tx.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/bolt/tx_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/commandLine.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/commands.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/proofOfWork.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/transaction.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v4/utils.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v4/block.go" beforeDir="false" afterPath="$PROJECT_DIR$/v4/block.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v4/blockchain.go" beforeDir="false" afterPath="$PROJECT_DIR$/v4/blockchain.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v4/commandLine.go" beforeDir="false" afterPath="$PROJECT_DIR$/v4/commandLine.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v4/commands.go" beforeDir="false" afterPath="$PROJECT_DIR$/v4/commands.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v4/proofOfWork.go" beforeDir="false" afterPath="$PROJECT_DIR$/v4/proofOfWork.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v4/transaction.go" beforeDir="false" afterPath="$PROJECT_DIR$/v4/transaction.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,32 +28,33 @@
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitignore" value="1" />
-          <entry key="go" value="28" />
+          <entry key="go" value="31" />
           <entry key="md" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Go" value="28" />
+          <entry key="Go" value="31" />
           <entry key="PLAIN_TEXT" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="go" value="5154" />
-          <entry key="md" value="1044" />
+          <entry key="go" value="7903" />
+          <entry key="md" value="1059" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Go" value="5154" />
-          <entry key="PLAIN_TEXT" value="1044" />
+          <entry key="Go" value="7903" />
+          <entry key="PLAIN_TEXT" value="1059" />
         </counts>
       </usages-collector>
     </session>
@@ -99,24 +62,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/v3/main.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/v4/bolt/cmd/bolt/main.go">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/readme.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="74" selection-start-line="74" selection-end-line="74" />
+            <state relative-caret-position="134">
+              <caret line="83" column="17" lean-forward="true" selection-start-line="83" selection-start-column="17" selection-end-line="83" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -124,7 +73,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/v3/commandLine.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="35">
+            <state relative-caret-position="630">
               <caret line="46" column="1" selection-start-line="46" selection-start-column="1" selection-end-line="46" selection-end-column="1" />
             </state>
           </provider>
@@ -133,8 +82,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/v4/commandLine.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="23" column="43" lean-forward="true" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
+            <state relative-caret-position="219">
+              <caret line="20" selection-start-line="20" selection-end-line="21" selection-end-column="58" />
             </state>
           </provider>
         </entry>
@@ -142,11 +91,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/v4/transaction.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="27" column="15" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
-              <folding>
-                <element signature="e#14#50#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="359">
+              <caret line="88" column="12" selection-start-line="88" selection-start-column="12" selection-end-line="88" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -154,8 +100,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/v4/blockchain.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="173" column="6" selection-start-line="173" selection-start-column="6" selection-end-line="173" selection-end-column="6" />
+            <state relative-caret-position="132">
+              <caret line="227" column="62" selection-start-line="227" selection-start-column="62" selection-end-line="227" selection-end-column="62" />
             </state>
           </provider>
         </entry>
@@ -172,8 +118,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/v4/commands.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="35" selection-start-line="35" selection-end-line="35" />
+            <state relative-caret-position="125">
+              <caret line="45" column="51" lean-forward="true" selection-start-line="45" selection-start-column="51" selection-end-line="45" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -183,6 +129,27 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
               <caret line="11" selection-start-line="11" selection-end-line="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/v4/proofOfWork.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="98" selection-start-line="98" selection-end-line="98" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/v4/block.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="22" column="30" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
+              <folding>
+                <element signature="e#24#67#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -200,6 +167,8 @@
     <findStrings>
       <find>PrepareData</find>
       <find>无效 param</find>
+      <find>NewCoinbaseTx</find>
+      <find>FindU</find>
     </findStrings>
   </component>
   <component name="GOROOT" path="/usr/local/Cellar/go/1.10.3/libexec" />
@@ -219,11 +188,13 @@
         <option value="$PROJECT_DIR$/v3/blockchain.go" />
         <option value="$PROJECT_DIR$/v3/commandLine.go" />
         <option value="$PROJECT_DIR$/v3/main.go" />
-        <option value="$PROJECT_DIR$/readme.md" />
         <option value="$PROJECT_DIR$/v4/main.go" />
+        <option value="$PROJECT_DIR$/v4/block.go" />
+        <option value="$PROJECT_DIR$/v4/proofOfWork.go" />
         <option value="$PROJECT_DIR$/v4/blockchain.go" />
-        <option value="$PROJECT_DIR$/v4/commands.go" />
         <option value="$PROJECT_DIR$/v4/commandLine.go" />
+        <option value="$PROJECT_DIR$/v4/commands.go" />
+        <option value="$PROJECT_DIR$/readme.md" />
         <option value="$PROJECT_DIR$/v4/transaction.go" />
       </list>
     </option>
@@ -235,7 +206,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="480" />
+    <option name="x" value="524" />
     <option name="y" value="23" />
     <option name="width" value="1006" />
     <option name="height" value="773" />
@@ -309,10 +280,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="480" y="23" width="1006" height="773" extended-state="0" />
+    <frame x="524" y="23" width="1006" height="773" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16390042" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21058092" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -324,7 +295,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32892805" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32892805" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32892805" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -468,16 +439,9 @@
     <entry file="file://$PROJECT_DIR$/v4/bolt/cmd/bolt/main.go">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/readme.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="74" selection-start-line="74" selection-end-line="74" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/v3/commandLine.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35">
+        <state relative-caret-position="630">
           <caret line="46" column="1" selection-start-line="46" selection-start-column="1" selection-end-line="46" selection-end-column="1" />
         </state>
       </provider>
@@ -489,13 +453,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/v4/blockchain.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="173" column="6" selection-start-line="173" selection-start-column="6" selection-end-line="173" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/v4/main.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -503,27 +460,55 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/v4/block.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="22" column="30" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
+          <folding>
+            <element signature="e#24#67#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/v4/proofOfWork.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="98" selection-start-line="98" selection-end-line="98" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/v4/commands.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
+        <state relative-caret-position="125">
+          <caret line="45" column="51" lean-forward="true" selection-start-line="45" selection-start-column="51" selection-end-line="45" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/v4/blockchain.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="227" column="62" selection-start-line="227" selection-start-column="62" selection-end-line="227" selection-end-column="62" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/v4/commandLine.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="23" column="43" lean-forward="true" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
+        <state relative-caret-position="219">
+          <caret line="20" selection-start-line="20" selection-end-line="21" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="83" column="17" lean-forward="true" selection-start-line="83" selection-start-column="17" selection-end-line="83" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/v4/transaction.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="27" column="15" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
-          <folding>
-            <element signature="e#14#50#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="359">
+          <caret line="88" column="12" selection-start-line="88" selection-start-column="12" selection-end-line="88" selection-end-column="12" />
         </state>
       </provider>
     </entry>

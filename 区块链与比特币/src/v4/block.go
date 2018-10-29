@@ -23,7 +23,8 @@ type Block struct {
 	Nonce         int64  //随机数
 
 	//交易信息
-	Data []byte
+	//Data []byte
+	Transactions []*Transaction
 	Hash []byte //实际中的hash根据区块计算，这里中简化代码
 }
 
@@ -56,7 +57,7 @@ func Deserialize(data []byte) *Block  {
 
 
 //data:交易信息， 前一个区块的哈希
-func NewBlock(data string, prevBlockHash []byte) *Block {
+func NewBlock(txs []*Transaction, prevBlockHash []byte) *Block {
 	var block Block
 	block = Block{
 		Version:       1,
@@ -66,7 +67,7 @@ func NewBlock(data string, prevBlockHash []byte) *Block {
 		TimeStamp:  time.Now().Unix(),
 		Bits:       targetBits,//难度值
 		Nonce:      0,
-		Data:       []byte(data)}
+		Transactions: txs}
 
 	//block.SetHash()
 	pow := NewProofOfWork(&block)//用工作量证明
@@ -95,8 +96,9 @@ func NewBlock(data string, prevBlockHash []byte) *Block {
 //}
 
 //创世块
-func NewGenersisBlock() *Block {
-	return NewBlock("GenersisBlock", []byte{})
+func NewGenersisBlock(coinbase *Transaction) *Block {
+	return NewBlock([]*Transaction{coinbase}, []byte{})
+
 }
 
 
