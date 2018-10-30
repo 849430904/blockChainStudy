@@ -29,16 +29,16 @@ func NewProofOfWork(block *Block) *ProofOfWork{
 func (pow *ProofOfWork)PrepareData(nonce int64)[]byte  {
 
 	block := pow.block
-	temp := [][]byte{ //定义一个二维的切片
+	copy(block.MerKelRoot,block.TransactionHash())
 
+	temp := [][]byte{ //定义一个二维的切片
 		IntToByte(block.Version),
 		block.PrevBlockHash,
-		block.MerKelRoot,
+		//block.MerKelRoot = block.TransactionHash(),// []byte,
+        block.MerKelRoot,
 		IntToByte(block.TimeStamp),
 		IntToByte(targetBits),
 		IntToByte(nonce),
-		//block.
-		//block.Transactions.TransactionHash()//TODO
 	}
 
 	//func Join(s [][]byte, sep []byte) []byte {

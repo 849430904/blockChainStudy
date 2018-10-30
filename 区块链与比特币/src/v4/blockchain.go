@@ -315,6 +315,7 @@ func (bc *BlockChain)FindUTXO(address string) []*TXOutput {
 		}
 	}
 
+
 	return UTXOs
 }
 

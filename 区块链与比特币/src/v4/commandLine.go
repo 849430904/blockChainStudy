@@ -26,7 +26,7 @@ const useage  = `
 const CreateChainCmdString  = "createChain"
 const AddBlockCmdString  = "addBlock"
 const PrintChainCmdString  = "printChain"
-const sendCmdString  = "send"//转账
+const SendCmdString  = "send"//转账
 const GetbalanceCmdString  = "getbalance"//获取某个账户的余额
 
 type CLI struct {
@@ -61,14 +61,22 @@ func (cli *CLI)Run()  {
 	addBlockCmd := flag.NewFlagSet(AddBlockCmdString,flag.ExitOnError)
 	printChainCmd := flag.NewFlagSet(PrintChainCmdString,flag.ExitOnError)
 	getbalanceCmd := flag.NewFlagSet(GetbalanceCmdString,flag.ExitOnError)
+	sendCmd := flag.NewFlagSet(SendCmdString,flag.ExitOnError)
 
 	//func (f *FlagSet) String(name string, value string, usage string) *string {
 	//把参数以str的形式返回,data表示参数名称，第二个参数表示默认值
 	addBlockCmdPara := addBlockCmd.String("data","","block transatcion info")
 
+	//创建区块链相关参数
 	createChainCmdPara := addBlockCmd.String("address","","address info")
 
+	//余额相关
 	getbalanceCmdPara := addBlockCmd.String("address","","address info")
+
+    //send相关参数
+	fromPara := addBlockCmd.String("from","","sender addrss info ")
+	toPara := addBlockCmd.String("to","","to address info")
+	amountPara := addBlockCmd.Float64("amount",0,"amount info")
 
 
 	//监听命令
@@ -102,7 +110,6 @@ func (cli *CLI)Run()  {
 
 	case GetbalanceCmdString://获取余额
 
-
 		err := getbalanceCmd.Parse(os.Args[2:])//解析参数，形如：./block addBlock --data "A to B" , os.Args[2] = (--data "A to B")
 		CheckErr("Run() getbalanceCmd",err)
 		if getbalanceCmd.Parsed(){
@@ -112,11 +119,7 @@ func (cli *CLI)Run()  {
 			//	cli.AddBlock(*addBlockCmdPara)
 		}
 
-
-
-
 	case PrintChainCmdString:
-
 
 		//打印输出
 		err := addBlockCmd.Parse(os.Args[2:])
@@ -126,10 +129,35 @@ func (cli *CLI)Run()  {
 			cli.PrintChain()
 		}
 
+	case SendCmdString:
+
+		err := sendCmd.Parse(os.Args[2:])
+		CheckErr("Run() sendCmd",err)
+		if sendCmd.Parsed(){
+			if *fromPara == "" && *toPara == "" && *amountPara == 0{//参数校验
+			    fmt.Println("send cmd paramter invalid")
+				cli.PrintUsage()
+			}
+			cli.send(*fromPara,*toPara,*amountPara)
+		}
 	default:
 		fmt.Println("无效 param")
 		cli.PrintUsage()
 
 	}
+
+	//fromPara := addBlockCmd.String("from","","sender addrss info ")
+	//toPara := addBlockCmd.String("to","","to address info")
+	//amountPara := addBlockCmd.String("amount","","amount info")
+}
+
+//转账
+func (cli *CLI)send(from,to string,amount float64)  {
+	bc := GetBlockChainHandler()
+	defer  bc.db.Close()
+    tx := NewTransaction(from,to,amount,bc)
+    bc.AddBlock([]*Transaction{tx})
+    fmt.Println("send successfully")
+
 }
 
