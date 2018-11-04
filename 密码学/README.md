@@ -15,3 +15,13 @@
 
 ### AES
 *  ![](img/029.png),对称加密中，现阶段安全级别最高的加密算法 ![](img/030.png)![](img/031.png)
+*  ![](img/032.png),新项目如果要用对称加密，建议使用AES加密算法
+
+### 非对称加密
+* 对称加密存在密钥分发困难，分发密钥的时候，可能被对方监听到。因而有了非对称加密
+* ![](img/033.png)![](img/034.png)![](img/035.png)![](img/036.png)![](img/037.png)![](img/038.png) ![](img/039.png),只有Bob能解密数据，Alice可以用公钥向Bob发送数据.非对称加密只需要向对方分发公钥就OK了
+* ![](img/040.png)![](img/041.png)![](img/042.png)![](img/043.png)![](img/044.png)![](img/045.png)![](img/046.png)![](img/047.png)![](img/048.png)![](img/049.png)
+
+* [非对称加解密demo](code/Ctypto/MyRsa.go)
+* ![](img/050.png)![](img/051.png),密钥越长，程序运行的时间越长，效率越低
+* ![](img/052.png)![](img/053.png)![](img/054.png)![](img/055.png)![](img/056.png)
