@@ -22,5 +22,7 @@ func main() {
 		"loworldhelloworldhelloworldhelloworldhelloworldhelloworldhellowor\n", 
 		"ldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworld")
 
-	//var num = 2 + 4 * 5 
+	var num = 2 + 4 * 5
+	var num2 = 6 + 4 * 5
+	fmt.Println("num:",num," num2:",num2)
 }

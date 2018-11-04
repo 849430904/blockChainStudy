@@ -6,6 +6,7 @@ package main
 
 import (
 	"bytes"
+	"crypto/sha256"
 	"encoding/gob"
 	"time"
 )
@@ -99,6 +100,26 @@ func NewBlock(txs []*Transaction, prevBlockHash []byte) *Block {
 func NewGenersisBlock(coinbase *Transaction) *Block {
 	return NewBlock([]*Transaction{coinbase}, []byte{})
 
+}
+
+//模拟默克尔树，将交易的hash值进行拼接，生成根； 默克尔树比较复杂，这里只做简单的拼接
+func (block *Block)TransactionHash()[]byte  {
+
+	var txHashes [][]byte
+	txs := block.Transactions
+
+	//遍历交易,所有交易拼接
+	for _,tx := range  txs{
+
+		//[]byte
+		txHashes = append(txHashes,tx.TXID)
+	}
+
+
+	//对二维切片进行拼接，生成一维切片
+	data := bytes.Join(txHashes,[]byte{})
+    hash/*[32]byte*/:= sha256.Sum256(data)
+    return hash[:]
 }
 
 

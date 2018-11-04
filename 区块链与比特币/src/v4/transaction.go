@@ -5,6 +5,7 @@ import (
 	"crypto/sha256"
 	"encoding/gob"
 	"fmt"
+	"os"
 )
 
 const reward  =  12.5
@@ -85,19 +86,74 @@ func (tx *Transaction)IsCoinbase() bool {
 //创建普通交易，send的辅助函数
 func NewTransaction(from , to string ,amount float64,bc *BlockChain) *Transaction {
 
-	//vaildUTXOs:所需要的，合适的utxo  map[string][]int64
+
+	vaildUTXOs :=  make(map[string][]int64)
+	//vaildUTXOs:所需要的，合适的utxo ； map[string][]int64，key为交易id,value:引用output的索引数组
 	//total:返回的utxo的金额的总和
-	vaildUTXOs,total := bc.FindSuitableUTXOs(from,amount)//总到一些合适的utxo，以便支付
+	var total float64
+	vaildUTXOs,total := bc.FindSuitableUTXOs(from,amount)//找到一些合适的utxo，以便支付
 
-
-	if total < amount {
+    //可能第一个元素为：vaildUTXOs[0x1111111] = int64{1}
+    //可能第0个元素为：vaildUTXOs[0x222222] = int64{0}
+	if total < amount {//余额不足
 		fmt.Println("Not enouth money!")
+		os.Exit(1)
+	}
+
+	var inputs []TXInput
+	var outputs []TXOutput
+	//1,创建inputs
+	//进行output到input的转换
+	for txId , outputIndexs := range  vaildUTXOs{
+
+		//遍历所有引用的Utxo的索引，每一个索引需要创建input
+		for _,index := range outputIndexs {
+
+			input := TXInput{[]byte(txId) , int64(index) , from}
+			inputs = append(inputs,input)
+		}
+	}
+
+	//2,创建outputs，给对方支付
+	output := TXOutput{amount,to}
+	outputs = append(outputs,output)
+
+	if total > amount {//找零
+		output := TXOutput{total - amount,from}
+		outputs = append(outputs,output)
 	}
 
 	//进行output转换到input
-
-	tx := Transaction{[]byte{},[]TXInput{},[]TXOutput{}}
+	//TXOutput:对应收款人
+	//TXInput:有可能来源于多个output
+	tx := Transaction{nil,inputs,outputs}
 	tx.SetTXID()
+
 	return &tx
 }
 
+//vaildUTXOs:所需要的，合适的utxo ； map[string][]int64，key为交易id,value:引用output的索引数组
+func (bc *BlockChain)FindSuitableUTXOs(address string,amonut  float64)(map[string][]int64,float64)  {
+
+	txs := bc.FindUTXOTransactions(address)//找到所有交易
+
+	validUTXOs :=  make(map[string][]int64)
+
+	var total float64
+	//遍历交易
+	for _,tx := range  txs{
+		outputs := tx.TXOutputs
+		for index , output := range  outputs{
+			if output.CanBeUnlockUTXOWith(address){//判断交易是不是这个地址能用的
+			    //判断当前收集的utxo的总金额是否大于所需要花费的金额
+			    if(total < amonut){
+					total += output.Value
+					validUTXOs[string(tx.TXID)] = append(validUTXOs[string(tx.TXID)],int64(index))
+				}
+
+			}
+
+		}
+	}
+	return validUTXOs,total
+}
