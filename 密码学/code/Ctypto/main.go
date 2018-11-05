@@ -6,7 +6,8 @@ func main()  {
 
 	//desTest()
 	//threeDesTest()
-	rsaTest()
+	//rsaTest()
+	hashTest()
 }
 
 //测试DES加解改密
@@ -71,3 +72,11 @@ func rsaTest()  {
 	fmt.Println("err:",err)
 }
 
+func hashTest()  {
+
+	data := []byte("少壮不努力，老大。。。")
+	hash := GetMd5str_1(data)
+	fmt.Println("hash:",hash)
+	hash = GetMd5str_2(data)
+	fmt.Println("hash:",hash)
+}
